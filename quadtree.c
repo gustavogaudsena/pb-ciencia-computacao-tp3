@@ -233,7 +233,7 @@ int main(void) {
     #pragma omp parallel
     {
         Ponto *buffer = malloc(NUMERO_PARTICULAS * sizeof(Ponto));
-        #pragma omp for
+        #pragma omp for schedule(dynamic, 100)
         for (size_t amostra = 0; amostra < qtd_amostras; amostra++) {
             size_t indice = amostra * passo;
             Ponto ponto_base = pontos[indice];
